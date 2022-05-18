@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://thymeleaf.org ">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All users</title>
@@ -17,7 +15,7 @@
             <th>AGE</th>
             <th>ACTIONS</th>
         </tr>
-        <tr th:each="user : ${allUsers}">
+        <tr th:each="user : ${usersList}">
             <td th:utext="${user.getFirstName()}">VALUE</td>
             <td th:utext="${user.getLastName()}">VALUE</td>
             <td th:utext="${user.getAge()}">VALUE</td>

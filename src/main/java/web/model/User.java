@@ -3,23 +3,23 @@ package web.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "USERS")
 public class User {
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "first name")
+    private long id;
+    @Column(name = "FIRST NAME")
     private String firstName;
-    @Column(name = "last name")
+    @Column(name = "LAST NAME")
     private String lastName;
-    @Column(name = "age")
-
-    private Byte age;
+    @Column(name = "AGE")
+    private int age;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, Byte age) {
+    public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -27,10 +27,6 @@ public class User {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -49,11 +45,21 @@ public class User {
         this.lastName = lastName;
     }
 
-    public byte getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(byte age) {
+    public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
