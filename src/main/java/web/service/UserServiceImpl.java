@@ -1,18 +1,19 @@
 package web.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.dao.UserDao;
-import web.dao.UserDaoImpl;
 import web.model.User;
 
 import java.util.List;
 
-@Component
+@Service
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao = new UserDaoImpl();
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public List<User> getAllUsers() {
@@ -25,17 +26,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(long id) {
+    public User getUser(Long id) {
         return userDao.getUser(id);
     }
 
     @Override
-    public void updateUser(User user) {
-        userDao.updateUser(user);
+    public void updateUser(Long id, User user) {
+        userDao.updateUser(id, user);
     }
 
     @Override
-    public void deleteUser(long id) {
+    public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
 }
