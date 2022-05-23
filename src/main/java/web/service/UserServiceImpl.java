@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
-
     @Override
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {
